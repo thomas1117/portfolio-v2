@@ -37,6 +37,7 @@ module.exports = (env, argv) => {
             path: path.resolve(path.join(__dirname, '/base/static'), 'dist'),
             filename: prod ? '[name].[contenthash].js' : '[name].js',
             publicPath: '/dist/'
+            // publicPath: prod ? '/static/dist/' : 'http://localhost:8080/dist/',
         },
         devtool: prod ? '' : 'cheap-module-eval-source-map',
         module: {
@@ -131,29 +132,29 @@ module.exports = (env, argv) => {
         };
     }
 
-    // const manifestConfig = {
-    //     output: 'manifest.json',
-    //     space: 2,
-    //     writeToDisk: false,
-    //     assets: {},
-    //     publicPath: '/dist/',
-    //     sortManifest(a, b) {
-    //         if (a > b) return -1;
-    //         if (a < b) return 1;
-    //         return 0;
-    //     }
-    // };
+    const manifestConfig = {
+        output: 'manifest.json',
+        space: 2,
+        writeToDisk: false,
+        assets: {},
+        publicPath: '/static/dist/',
+        sortManifest(a, b) {
+            if (a > b) return -1;
+            if (a < b) return 1;
+            return 0;
+        }
+    };
 
-    // const transformer = new WebpackAssetsManifest(manifestConfig);
+    const transformer = new WebpackAssetsManifest(manifestConfig);
 
-    // if (!prod) {
-    //     transformer.hooks.transform.tap('transformation', (assets) => transformLocalManifest(assets, Object.keys(webpackObj.entry), `http://localhost:${PORT}`, BUILD_LOCAL_CSS));
-    // } else {
-    //     transformer.hooks.transform.tap('transformation', (assets) => transformProductionManifest(assets));
-    // }
+    if (!prod) {
+        transformer.hooks.transform.tap('transformation', (assets) => transformLocalManifest(assets, Object.keys(webpackObj.entry), `http://localhost:${PORT}`, BUILD_LOCAL_CSS));
+    } else {
+        transformer.hooks.transform.tap('transformation', (assets) => transformProductionManifest(assets));
+    }
 
-    // webpackObj.plugins.push(transformer);
+    webpackObj.plugins.push(transformer);
 
-    webpackObj.plugins.push(new BundleTracker({filename: './base/static/dist/manifest.json', publicPath: '/static/dist/'}));
+    // webpackObj.plugins.push(new BundleTracker({filename: './base/static/dist/manifest.json', publicPath: prod ? '/static/dist/' : 'http://localhost:8080/dist/'}));//publicPath: '/static/dist/'}));
     return webpackObj;
 };

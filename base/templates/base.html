@@ -1,4 +1,4 @@
-{% load static wagtailuserbar %}
+{% load static wagtailuserbar site_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -20,6 +20,8 @@
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 
+        {% bundle 'main' 'css' %}
+
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
@@ -32,6 +34,13 @@
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
+
+        {% block pre_scripts %}
+
+        {% endblock%}
+
+        {% bundle 'vendor' %}
+        {% bundle 'main' %}
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}

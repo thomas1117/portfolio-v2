@@ -48,8 +48,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -168,7 +166,7 @@ BASE_URL = 'http://example.com'
 WEBPACK_LOADER = {
     'DEFAULT': {
         'CACHE': False,
-        'BUNDLE_DIR_NAME': 'webpack_bundles/', # must end with slash
+        'BUNDLE_DIR_NAME': 'dist/', # must end with slash
         'STATS_FILE': os.path.join(BASE_DIR, 'base/static/dist/manifest.json'),
         'POLL_INTERVAL': 0.1,
         'TIMEOUT': None,

@@ -1,0 +1,6 @@
+base/static/dist
+node_modules
+.direnv
+db.sqlite3
+*.pyc
+.env

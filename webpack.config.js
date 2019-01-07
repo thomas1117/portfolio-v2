@@ -9,6 +9,7 @@ const {
     transformLocalManifest,
     transformProductionManifest
 } = require('./webpack-format');
+const BundleTracker = require('webpack-bundle-tracker');
 require('dotenv').config();
 // process.env.CSS_LOCAL_BUILD || false not working...
 const BUILD_LOCAL_CSS = false;
@@ -99,7 +100,7 @@ module.exports = (env, argv) => {
         optimization: {},
         plugins: [
             // this breaks custom manifest
-            // new CleanWebpackPlugin(['static/src/dist']),
+            // new CleanWebpackPlugin(['base/static/dist']),
         ],
         performance: {
             hints: false
@@ -130,27 +131,29 @@ module.exports = (env, argv) => {
         };
     }
 
-    const manifestConfig = {
-        output: 'manifest.json',
-        space: 2,
-        writeToDisk: false,
-        assets: {},
-        publicPath: '/dist/',
-        sortManifest(a, b) {
-            if (a > b) return -1;
-            if (a < b) return 1;
-            return 0;
-        }
-    };
+    // const manifestConfig = {
+    //     output: 'manifest.json',
+    //     space: 2,
+    //     writeToDisk: false,
+    //     assets: {},
+    //     publicPath: '/dist/',
+    //     sortManifest(a, b) {
+    //         if (a > b) return -1;
+    //         if (a < b) return 1;
+    //         return 0;
+    //     }
+    // };
 
-    const transformer = new WebpackAssetsManifest(manifestConfig);
+    // const transformer = new WebpackAssetsManifest(manifestConfig);
 
-    if (!prod) {
-        transformer.hooks.transform.tap('transformation', (assets) => transformLocalManifest(assets, Object.keys(webpackObj.entry), `http://localhost:${PORT}`, BUILD_LOCAL_CSS));
-    } else {
-        transformer.hooks.transform.tap('transformation', (assets) => transformProductionManifest(assets));
-    }
+    // if (!prod) {
+    //     transformer.hooks.transform.tap('transformation', (assets) => transformLocalManifest(assets, Object.keys(webpackObj.entry), `http://localhost:${PORT}`, BUILD_LOCAL_CSS));
+    // } else {
+    //     transformer.hooks.transform.tap('transformation', (assets) => transformProductionManifest(assets));
+    // }
 
-    webpackObj.plugins.push(transformer);
+    // webpackObj.plugins.push(transformer);
+
+    webpackObj.plugins.push(new BundleTracker({filename: './base/static/dist/manifest.json', publicPath: '/static/dist/'}));
     return webpackObj;
 };

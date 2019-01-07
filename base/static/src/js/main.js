@@ -1,3 +1,11 @@
 import '../sass/main.scss';
 
-console.log('test');
+import Test from '@/vue/components/Test';
+import Vue from 'vue';
+
+const app = new Vue({
+    el: '#app',
+    components: {
+        Test
+    }
+});

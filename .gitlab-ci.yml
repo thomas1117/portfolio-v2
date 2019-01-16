@@ -8,10 +8,10 @@ stages:
 Build:
   stage: build
   script:
-    - echo "${APPLICATION_SERVICE_ACCOUNT}" > var/develoship_website.json
+#    - echo "${APPLICATION_SERVICE_ACCOUNT}" > var/develoship_website.json
     - make build
-  after_script:
-    - rm var/develoship_website.json
+#  after_script:
+#    - rm var/develoship_website.json
 #  tags:
 #    - api_shell
 
@@ -38,10 +38,10 @@ Prod_DB_Migration:
 Deploy_production:
   stage: deploy_production
   script:
-    - echo "${APPLICATION_SERVICE_ACCOUNT}" > var/develoship_website.json
+#    - echo "${APPLICATION_SERVICE_ACCOUNT}" > var/develoship_website.json
     - make deploy_app
   after_script:
-  - rm var/develoship_website.json
+#  - rm var/develoship_website.json
 #  tags:
 #    - api_shell
   only:

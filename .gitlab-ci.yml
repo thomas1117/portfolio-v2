@@ -12,8 +12,8 @@ Build:
     - make build
   after_script:
     - rm var/develoship_website.json
-  tags:
-    - api_shell
+#  tags:
+#    - api_shell
 
 Test:
   stage: test
@@ -21,8 +21,8 @@ Test:
     - make test
   after_script:
     - make test_cleanup
-  tags:
-    - api_shell
+#  tags:
+#    - api_shell
 
 Prod_DB_Migration:
   stage: prod_db_migration
@@ -30,8 +30,8 @@ Prod_DB_Migration:
     - make prod_db_migrate
   after_script:
     - make prod_db_migrate_cleanup
-  tags:
-    - api_shell
+#  tags:
+#    - api_shell
   only:
     - tags
 
@@ -42,8 +42,8 @@ Deploy_production:
     - make deploy_app
   after_script:
   - rm var/develoship_website.json
-  tags:
-    - api_shell
+#  tags:
+#    - api_shell
   only:
     - tags
 
@@ -52,5 +52,5 @@ Docker_Cleanup:
   script:
     - make docker_cleanup
   when: always
-  tags:
-    - api_shell
+#  tags:
+#    - api_shell

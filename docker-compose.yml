@@ -2,6 +2,7 @@ version: '2'
 
 services:
   db:
+    container_name: develoship_website_db
     environment:
       POSTGRES_DB: develoship_website_db
       POSTGRES_USER: website_user
@@ -21,6 +22,7 @@ services:
     expose:
       - "9200"
   app:
+    container_name: develoship_website_app
     environment:
       DJANGO_SECRET_KEY: Xkf/6#'1{+Y.xgR
       DATABASE_URL: postgres://website_user:xTn6nCt6ya@db/develoship_website_db

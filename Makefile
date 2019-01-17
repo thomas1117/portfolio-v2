@@ -5,7 +5,7 @@ create_superuser:
 	docker exec -it website_app python manage.py createsuperuser
 
 build:
-	docker build -f -t develoship_website_app:${CI_PIPELINE_ID} -f var/Dockerfile .
+	docker build -t develoship_website_app:${CI_PIPELINE_ID} -f var/Dockerfile .
 
 test:
 	make build

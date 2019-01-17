@@ -13,6 +13,9 @@ RUN apt-get update \
         && apt-get install -y openssh-client \
         && pip install pipenv
 
+RUN useradd wagtail
+RUN chown -R wagtail /code
+USER wagtail
 
 #COPY ../requirements.txt /code/requirements.txt
 RUN pip install --upgrade pip
@@ -26,10 +29,6 @@ COPY .. /code/
 WORKDIR /code/
 
 RUN python manage.py migrate
-
-RUN useradd wagtail
-RUN chown -R wagtail /code
-USER wagtail
 
 EXPOSE 8000
 CMD exec gunicorn base.wsgi:application --bind 0.0.0.0:8000 --workers 3

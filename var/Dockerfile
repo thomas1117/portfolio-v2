@@ -14,14 +14,17 @@ RUN apt-get update \
         && pip install pipenv
 
 
+RUN useradd wagtail
+RUN chown -R wagtail ..
 # Copy the current directory contents into the container at /code/
 COPY .. /code/
+RUN chown -R wagtail /code
 # Set the working directory to /code/
 WORKDIR /code/
 
 
 RUN useradd wagtail
-RUN chown -R wagtail /code
+
 USER wagtail
 
 #COPY ../requirements.txt /code/requirements.txt

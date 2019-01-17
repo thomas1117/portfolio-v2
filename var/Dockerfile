@@ -4,7 +4,12 @@ LABEL maintainer="hello@wagtail.io"
 
 # Set environment varibles
 ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV DJANGO_ENV dev
+
+RUN apt-get update \
+        && apt-get install -y openssh-client \
+        && pip install pipenv \
 
 COPY ../requirements.txt /code/requirements.txt
 RUN pip install --upgrade pip

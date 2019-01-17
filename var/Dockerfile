@@ -20,7 +20,9 @@ RUN set -ex \
 		libjpeg-turbo-dev \
 		zlib-dev \
 		git
-RUN apk add --no-cache postgresql-client
+
+#RUN apk add --no-cache postgresql-client
+
 RUN apt-get update \
         && apt-get install -y openssh-client \
         && pip install pipenv

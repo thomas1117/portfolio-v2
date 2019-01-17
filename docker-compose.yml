@@ -22,6 +22,7 @@ services:
     expose:
       - "9200"
   app:
+    image: develoship_website_app
     container_name: develoship_website_app
     environment:
       DJANGO_SECRET_KEY: Xkf/6#'1{+Y.xgR

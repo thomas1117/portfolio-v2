@@ -19,18 +19,15 @@ RUN chown -R wagtail ..
 USER wagtail
 
 ## Copy the current directory contents into the container at /code/
-#COPY .. /code/
-#RUN chown -R wagtail /code
-## Set the working directory to /code/
-#WORKDIR /code/
-
-
-
 RUN mkdir /code
+RUN chown -R wagtail /code
+COPY .. /code/
+# Set the working directory to /code/
 WORKDIR /code/
+
+
 ADD requirements.txt /code/
 RUN pip install -r requirements.txt
-ADD . /code/
 
 #COPY ../requirements.txt /code/requirements.txt
 #RUN pip install --upgrade pip

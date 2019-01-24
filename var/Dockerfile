@@ -29,7 +29,7 @@ RUN mkdir /code/
 WORKDIR /code/
 ADD . /code/
 
-ADD requirements.txt /code/
+#ADD requirements.txt /code/
 RUN pip install -r requirements.txt
 
 #COPY ../requirements.txt /code/requirements.txt

@@ -14,8 +14,10 @@ RUN apt-get update \
         && pip install pipenv
 
 
-#RUN useradd wagtail
-#RUN chown -R wagtail ..
+RUN useradd wagtail
+RUN chown -R wagtail ..
+USER wagtail
+
 ## Copy the current directory contents into the container at /code/
 #COPY .. /code/
 #RUN chown -R wagtail /code
@@ -23,9 +25,6 @@ RUN apt-get update \
 #WORKDIR /code/
 
 
-RUN useradd wagtail
-
-USER wagtail
 
 RUN mkdir /code
 WORKDIR /code/

@@ -21,6 +21,8 @@ before_script:
   - apk upgrade
   - apk add python python-dev py-pip build-base
   - pip install docker-compose
+  - pwd
+  - ls
 
 stages:
 #  - build

@@ -1,26 +1,26 @@
-image: docker
-
-services:
-  - docker:dind
-
-before_script:
-  - apk add --no-cache py-pip
-  - pip install docker-compose
-
-
-
 #image: docker
+#
+#services:
+#  - docker:dind
+#
+#before_script:
+#  - apk add --no-cache py-pip
+#  - pip install docker-compose
+
+
+
+image: docker
 
 #services:
 #  - docker:dind
 
-#before_script:
-#  - apk add --no-cache py-pip
-#  - docker info
-#  - apk update
-#  - apk upgrade
-#  - apk add python python-dev py-pip build-base
-#  - pip install docker-compose
+before_script:
+  - apk add --no-cache py-pip
+  - docker info
+  - apk update
+  - apk upgrade
+  - apk add python python-dev py-pip build-base
+  - pip install docker-compose
 
 stages:
   - build

@@ -42,9 +42,9 @@ Build:
 Test:
   stage: test
   script:
-    - make test
-  after_script:
-    - make test_cleanup
+    - make test_2
+#  after_script:
+#    - make test_cleanup
 #  tags:
 #    - api_shell
 

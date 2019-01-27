@@ -10,6 +10,11 @@ build:
 test:
 	docker-compose --project-name ${CI_COMMIT_SHA} -f var/docker-compose-testing.yml up
 
+
+test_2:
+	docker exec -it website_app python manage.py test
+
+
 test_cleanup:
 	docker-compose --project-name ${CI_COMMIT_SHA} -f var/docker-compose-testing.yml down -v
 

@@ -8,11 +8,15 @@ build:
 	docker build -t develoship_website_app:${CI_PIPELINE_ID} -f var/Dockerfile .
 
 test:
-	docker-compose --project-name ${CI_COMMIT_SHA} -f var/docker-compose-testing.yml up
+	docker-compose -f var/docker-compose-testing.yml up
 
 
 test_2:
 	python manage.py test
+
+
+test_3:
+	docker-compose --project-name ${CI_COMMIT_SHA} -f var/docker-compose-testing.yml up
 
 
 test_cleanup:

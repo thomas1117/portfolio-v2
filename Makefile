@@ -12,7 +12,7 @@ test:
 
 
 test_2:
-	docker exec -it website_app python manage.py test
+	python manage.py test
 
 
 test_cleanup:

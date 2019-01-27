@@ -42,7 +42,7 @@ RUN pip install -r requirements.txt
 #RUN pip install -r /code/requirements.txt
 #RUN pip install gunicorn
 
-RUN python manage.py migrate
-
-EXPOSE 8000
-CMD exec gunicorn base.wsgi:application --bind 0.0.0.0:8000 --workers 3
+#RUN python manage.py migrate
+#
+#EXPOSE 8000
+#CMD exec gunicorn base.wsgi:application --bind 0.0.0.0:8000 --workers 3

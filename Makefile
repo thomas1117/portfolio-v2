@@ -8,7 +8,7 @@ build:
 	docker build -t develoship_website_app:${CI_PIPELINE_ID} -f var/Dockerfile .
 
 test:
-	docker-compose --project-name ${CI_COMMIT_SHA} -f docker-compose-testing.yml up
+	docker-compose --project-name ${CI_COMMIT_SHA} -f var/docker-compose-testing.yml up
 
 
 test_2:

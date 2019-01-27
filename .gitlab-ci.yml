@@ -33,8 +33,9 @@ Build:
   stage: build
   script:
 #    - echo "${APPLICATION_SERVICE_ACCOUNT}" > var/develoship_website.json
-    - make build
     - docker ps -a
+    - make build
+
 #  after_script:
 #    - rm var/develoship_website.json
 #  tags:

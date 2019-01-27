@@ -39,6 +39,7 @@ services:
       CACHE_URL: redis://redis
       ELASTICSEARCH_ENDPOINT: elasticsearch
     build: .
+      context: ../..
 #      context: ..
 #      dockerfile: Dockerfile
 #    build:

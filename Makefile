@@ -16,11 +16,11 @@ test_2:
 
 
 test:
-	docker-compose --project-name ${CI_COMMIT_SHA} -f var/docker-compose-testing.yml up
+	docker-compose --project-name ${CI_COMMIT_SHA} -f docker-compose-testing.yml up
 
 
 test_cleanup:
-	docker-compose --project-name ${CI_COMMIT_SHA} -f var/docker-compose-testing.yml down -v
+	docker-compose --project-name ${CI_COMMIT_SHA} -f docker-compose-testing.yml down -v
 
 prod_db_migrate:
 	make build

@@ -1,18 +1,19 @@
 version: '3.7'
 
 services:
-  db:
+  testing_db:
+    image: postgres:9.6
     container_name: develoship_website_testing_db
+    restart: on-failure
     environment:
       POSTGRES_DB: develoship_website_testing_db
       POSTGRES_USER: website_user
       POSTGRES_PASSWORD: xTn6nCt6ya
-    restart: always
-    image: postgres:9.6
-    expose:
-      - "5432"
+#    restart: always
+#    expose:
+#      - "5432"
     networks:
-    - website_testing
+    - website_testing_net
 
 #  redis:
 #    restart: always
@@ -20,7 +21,7 @@ services:
 #    expose:
 #      - "6379"
 #    networks:
-#    - website_testing
+#    - website_testing_net
 #
 #  elasticsearch:
 #    image: elasticsearch:2.3
@@ -28,11 +29,11 @@ services:
 #    expose:
 #      - "9200"
 #    networks:
-#    - website_testing
+#    - website_testing_net
 
-  app:
-    image: develoship_website_testing
-    container_name: develoship_website_testing
+  backend_tests:
+    image: backend_tests
+#    container_name: develoship_website_testing
     environment:
       DJANGO_SECRET_KEY: Xkf/6#'1{+Y.xgR
       DATABASE_URL: postgres://website_user:xTn6nCt6ya@db/develoship_website_testing_db
@@ -52,15 +53,15 @@ services:
 #    ports:
 #      - "8000:8000"
     depends_on:
-      - db
+      - testing_db
 #      - redis
 #      - elasticsearch
     command: python /code/manage.py test
     networks:
-    - website_testing
+    - website_testing_net
 
 
 
 networks:
-  website_testing:
+  website_testing_net:
     driver: bridge

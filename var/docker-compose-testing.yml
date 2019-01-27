@@ -43,7 +43,7 @@ services:
 #      dockerfile: Dockerfile
     build:
       context: ../..
-      dockerfile: ../Dockerfile
+      dockerfile: var/Dockerfile
     links:
       - db:db
       - redis:redis

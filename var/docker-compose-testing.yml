@@ -38,9 +38,12 @@ services:
       DATABASE_URL: postgres://website_user:xTn6nCt6ya@db/develoship_website_testing_db
       CACHE_URL: redis://redis
       ELASTICSEARCH_ENDPOINT: elasticsearch
-    build: .
+#    build: .
 #      context: ..
 #      dockerfile: Dockerfile
+    build:
+      context: ../..
+      dockerfile: ../Dockerfile
     links:
       - db:db
       - redis:redis

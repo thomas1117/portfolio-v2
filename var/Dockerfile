@@ -29,8 +29,8 @@ RUN mkdir /code/
 WORKDIR /code/
 ADD . /code/
 
-RUN PWD
-RUN LS
+RUN pwd
+RUN ls
 
 #ADD requirements.txt /code/
 RUN pip install -r requirements.txt

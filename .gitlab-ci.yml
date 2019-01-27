@@ -25,16 +25,16 @@ before_script:
 stages:
 #  - build
   - test
-  - prod_db_migration
-  - deploy_production
+#  - prod_db_migration
+#  - deploy_production
   - docker_cleanup
 
-Build:
-  stage: build
-  script:
-#    - echo "${APPLICATION_SERVICE_ACCOUNT}" > var/develoship_website.json
-    - docker ps -a
-    - make build
+#Build:
+#  stage: build
+#  script:
+##    - echo "${APPLICATION_SERVICE_ACCOUNT}" > var/develoship_website.json
+#    - docker ps -a
+#    - make build
 
 #  after_script:
 #    - rm var/develoship_website.json
@@ -50,28 +50,28 @@ Test:
 #  tags:
 #    - api_shell
 
-Prod_DB_Migration:
-  stage: prod_db_migration
-  script:
-    - make prod_db_migrate
-  after_script:
-    - make prod_db_migrate_cleanup
-#  tags:
-#    - api_shell
-  only:
-    - tags
-
-Deploy_production:
-  stage: deploy_production
-  script:
-#    - echo "${APPLICATION_SERVICE_ACCOUNT}" > var/develoship_website.json
-    - make deploy_app
-  after_script:
-#  - rm var/develoship_website.json
-#  tags:
-#    - api_shell
-  only:
-    - tags
+#Prod_DB_Migration:
+#  stage: prod_db_migration
+#  script:
+#    - make prod_db_migrate
+#  after_script:
+#    - make prod_db_migrate_cleanup
+##  tags:
+##    - api_shell
+#  only:
+#    - tags
+#
+#Deploy_production:
+#  stage: deploy_production
+#  script:
+##    - echo "${APPLICATION_SERVICE_ACCOUNT}" > var/develoship_website.json
+#    - make deploy_app
+#  after_script:
+##  - rm var/develoship_website.json
+##  tags:
+##    - api_shell
+#  only:
+#    - tags
 
 Docker_Cleanup:
   stage: docker_cleanup

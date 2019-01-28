@@ -33,10 +33,10 @@ docker_cleanup:
 	docker system prune -f -a
 
 dev_build:
-	docker-compose -f var/docker-compose.yml up --build --remove-orphans
+	docker-compose -f docker-compose.yml up --build --remove-orphans
 
 dev_up:
-	docker-compose -f var/docker-compose.yml up --remove-orphans
+	docker-compose -f docker-compose.yml up --remove-orphans
 
 pipenv_freeze:
 	pipenv lock -r > requirements.txt

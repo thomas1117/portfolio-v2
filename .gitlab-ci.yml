@@ -3,17 +3,6 @@ image: docker
 services:
   - docker:dind
 
-#before_script:
-#  - apk add --no-cache py-pip
-#  - pip install docker-compose
-
-
-
-#image: docker
-#
-#services:
-#  - docker:dind
-#
 before_script:
   - apk add --no-cache py-pip
   - docker info
@@ -21,64 +10,18 @@ before_script:
   - apk upgrade
   - apk add python python-dev py-pip build-base
   - pip install docker-compose
-  - pwd
-  - ls
 
 stages:
-#  - build
   - test
-#  - prod_db_migration
-#  - deploy_production
   - docker_cleanup
-
-#Build:
-#  stage: build
-#  script:
-##    - echo "${APPLICATION_SERVICE_ACCOUNT}" > var/develoship_website.json
-#    - docker ps -a
-#    - make build
-
-#  after_script:
-#    - rm var/develoship_website.json
-#  tags:
-#    - api_shell
 
 Test:
   stage: test
   script:
     - make test
-#  after_script:
-#    - make test_cleanup
-#  tags:
-#    - api_shell
-
-#Prod_DB_Migration:
-#  stage: prod_db_migration
-#  script:
-#    - make prod_db_migrate
-#  after_script:
-#    - make prod_db_migrate_cleanup
-##  tags:
-##    - api_shell
-#  only:
-#    - tags
-#
-#Deploy_production:
-#  stage: deploy_production
-#  script:
-##    - echo "${APPLICATION_SERVICE_ACCOUNT}" > var/develoship_website.json
-#    - make deploy_app
-#  after_script:
-##  - rm var/develoship_website.json
-##  tags:
-##    - api_shell
-#  only:
-#    - tags
 
 Docker_Cleanup:
   stage: docker_cleanup
   script:
     - make docker_cleanup
   when: always
-#  tags:
-#    - api_shell

@@ -1,3 +1,20 @@
 @import "~bootstrap/scss/bootstrap";
 @import "util/text-modifiers";
 @import "pages/home";
+@import "layout/nav";
+
+// TODO change to bootstrap vars...
+
+$primary: #3D72AC!important;
+
+.text-primary {
+    color: $primary;
+}
+
+.btn {
+    font-weight: bold;
+    background-color: $primary;
+    border-radius: 2rem;
+    border: none;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+}

@@ -137,7 +137,7 @@ module.exports = (env, argv) => {
         space: 2,
         writeToDisk: false,
         assets: {},
-        publicPath: '/static/dist/',
+        publicPath: prod ? '/static/dist/' : '/dist/',
         sortManifest(a, b) {
             if (a > b) return -1;
             if (a < b) return 1;

@@ -8,7 +8,6 @@
 {% comment %}
 Delete the line below if you're just getting started and want to remove the welcome screen!
 {% endcomment %}
-<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
 {% endblock extra_css %}
 
 {% block content %}
@@ -16,6 +15,16 @@ Delete the line below if you're just getting started and want to remove the welc
 {% comment %}
 Delete the line below if you're just getting started and want to remove the welcome screen!
 {% endcomment %}
-{% include 'home/welcome_page.html' %}
+<div class="home-page">
+    <div class="header text-white" style="background-image: url({% static 'images/earth.jpg' %})">
+        <div class="container">
+            <h1 class="header__main font-weight-light">Quality code</h1>
+            <h2 class="header__sub"><strong>for cosmic ideas</strong></h2>
+            <p class="header__message">We've travelled far across the app galaxy - from scaling MVPs to well rounded applications. Ambitious and driven by huge amounts of commerical experience, gained by working for successful startups and world class companies</p>
+        </div>
+    </div>
+</div>
+
+<div id="app"></div>
 
 {% endblock content %}

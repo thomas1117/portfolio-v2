@@ -13,8 +13,12 @@ $primary: #3D72AC!important;
 
 .btn {
     font-weight: bold;
-    background-color: $primary;
     border-radius: 2rem;
     border: none;
     padding: 1rem 1.5rem 1rem 1.5rem;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: $primary;
 }

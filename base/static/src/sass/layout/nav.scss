@@ -1,5 +1,6 @@
 .main-nav {
     position: fixed;
+    z-index: 999;
     color: #fff;
 
     .main-nav__logo {
@@ -23,5 +24,9 @@
         a {
             color: #fff;
         }
+    }
+
+    &.darken {
+        background-color: #000;
     }
 }

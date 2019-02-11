@@ -8,6 +8,7 @@
 {% comment %}
 Delete the line below if you're just getting started and want to remove the welcome screen!
 {% endcomment %}
+<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
 {% endblock extra_css %}
 
 {% block content %}
@@ -15,109 +16,6 @@ Delete the line below if you're just getting started and want to remove the welc
 {% comment %}
 Delete the line below if you're just getting started and want to remove the welcome screen!
 {% endcomment %}
-<div class="home-page">
-    <div class="header text-white" style="background-image: url({% static 'images/earth.jpg' %})">
-        <div class="d-flex align-items-center h-100">
-            <div class="container">
-                <h1 class="header__main font-weight-light">Quality code</h1>
-                <h2 class="header__sub"><strong>for cosmic ideas</strong></h2>
-                <div class="row pt-4">
-                    <div class="col-xl-6 col-lg-7">
-                        <p class="header__message">We've travelled far across the app galaxy - from scaling MVPs to well rounded applications. Ambitious and driven by huge amounts of commerical experience, gained by working for successful startups and world class companies</p>
-                        <div class="header__cta">
-                            <button class="btn btn-primary">Contact Mission Control</button>
-                            <span class="header__or">Or</span>
-                            <a href="#" class="text-white text-underline header__link">see our past missions</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="reason-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 reason-section__item">
-                    <h2 class="reason-section-header">A few reasons why <br />we might be the <br />right fit</h2>
-                </div>
-                <div class="col-lg-4 reason-section__item">
-                    <img class="reason-section__img" src="{% static 'images/icons/heart.svg' %}" alt="">
-                    <h3 class="reason-section__title">App building api</h3>
-                    <p class="reason-section__message">We've developed the GoatAPI to facilitate your ideas into reality at warp speed.</p>
-                </div>
-                <div class="col-lg-4 reason-section__item">
-                    <img class="reason-section__img" src="{% static 'images/icons/heart.svg' %}" alt="">
-                    <h3 class="reason-section__title">Passionate dreamers</h3>
-                    <p class="reason-section__message">We love our jobs, therefore we treat every project like it was our last</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 reason-section__item">
-                    <img class="reason-section__img" src="{% static 'images/icons/heart.svg' %}" alt="">
-                    <h2 class="reason-section__title">Rich experience</h2>
-                    <p class="reason-section__message">As the startup veterans, we've seen it all and helped tons of companies grow.</p>
-                </div>
-                <div class="col-lg-4 reason-section__item">
-                    <img class="reason-section__img" src="{% static 'images/icons/heart.svg' %}" alt="">
-                    <h3 class="reason-section__title">Mutual partnership</h3>
-                    <p class="reason-section__message">Always happy to share any kind of business or real life advice</p>
-                </div>
-                <div class="col-lg-4 reason-section__item">
-                    <img class="reason-section__img" src="{% static 'images/icons/heart.svg' %}" alt="">
-                    <h3 class="reason-section__title">Attention to schedule</h3>
-                    <p class="reason-section__message">Deadline is our religion. Let's ship your MVP before the damn competition!</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="mission-section clearfix">
-        <div class="mission-section__bg text-white" style="background-image: url({% static 'images/space-arc.jpg' %})">
-            <div class="container">
-                <div class="mission-section--pad">
-                    <div class="row">
-                        <div class="mission-section__left">
-                            <img class="mission-section__device" src="{% static 'images/phone-app.png' %}" alt="">
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="mission-section__content">
-                                <h2>Our Past missions</h2>
-                                <p>We've been working closely with top level clients in the tech space. From pigeonly, NewMe accelerator, and Mom and Pop shops. All being successfully acquired or incorporated into many lives.</p>
-                                <button class="btn btn-primary">View Past Missions</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="astronaut-section">
-        <div class="astronaut-section__container">
-            <div class="astronaut-section__left">
-                <div class="astronaut-section__left--pad">
-                    <h2>Are we astronauts or developers?</h2>
-                    <p>We're seasoned developers, multi-talented in every aspect. But you can call us what you want. We are a blend of cultures, backgrounds and skills. We founded develoship to provide a new quality and quickness in tech space. In essence, we are astronauts as well.</p>
-                    <a href="#" class="btn btn-primary">Read more</a>
-                </div>
-            </div>
-            <div class="astronaut-section__right" style="background-image: url({% static 'images/astronaut.jpg' %})">
-                
-            </div>
-        </div>
-    </div>
-
-    <div class="service-cta-section">
-        <div class="text-center">
-            <h2 class="service-cta-section__header">Ready to plan a mission?</h2>
-            <div class="service-cta-section__btn-container m-auto justify-content-center pt-4">
-                <a href="#" class="btn btn-primary btn-contact">Contact Us</a>
-                <div class="ml-2 mr-2"></div>
-                <a href="" class="btn btn-estimate">Estimate Projects</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="app"></div>
+{% include 'home/welcome_page.html' %}
 
 {% endblock content %}

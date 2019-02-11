@@ -19,7 +19,6 @@
 
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
 
         {% bundle 'main' 'css' %}
 
@@ -30,8 +29,6 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
-
-        {% include "layout/header.html" %}
 
         {% block content %}{% endblock %}
 

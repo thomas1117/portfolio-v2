@@ -1,0 +1,209 @@
+$gray-bg: #F6F7F8;
+
+$red: #EF787E;
+
+.home-page {
+    .header {
+        background: no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height: 100vh;
+
+        &__main {
+            font-size: 3rem;
+        }
+
+        &__sub {
+            font-size: 2.75rem;
+        }
+
+        &__or {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+
+        &__message {
+            font-size: 1rem;
+        }
+
+        &__link {
+            font-size: 1.25rem;
+        }
+
+        @media(max-width: 768px) {
+            &__or, &__link {
+                display: block;
+                padding-top: 1rem;
+            }
+
+            &__cta {
+                text-align: center;
+            }
+        }
+    }
+
+    .reason-section {
+        padding-top: 7rem;
+        padding-bottom: 4rem;
+
+        @media(max-width: 768px) {
+            padding-top: 3rem;
+        }
+
+        &__item {
+            padding-bottom: 40px;
+        }
+
+        &__title {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+
+            @media(max-width: 768px) {
+                padding-top: .5rem;
+                padding-bottom: .5rem;
+            }
+        }
+
+        &__img {
+            height: 36px;
+        }
+    }
+
+    .mission-section {
+        padding-top: 3rem;
+        position: relative;
+
+        &__device {
+            max-width: 300px;
+            left: 250px;
+            position: absolute;
+            top: 20px;
+
+            @media(max-width: 992px) {
+                left: 175px;
+            }
+
+            @media(max-width: 768px) {
+                position: relative;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        &__content {
+            left: 400px;
+            position: relative;
+
+            @media(max-width: 992px) {
+                left: 350px;
+                max-width: 350px;
+            }
+
+            @media(max-width: 768px) {
+                left: 0;
+                max-width: 100%;
+            }
+        }
+
+        &__bg {
+            width: 90%;
+            float: right;
+            border-top-left-radius: 290px;
+            border-bottom-left-radius: 290px;
+            margin-bottom: 5rem;
+
+            @media(max-width: 768px) {
+                border-radius: 0;
+                width: 100%;
+            }
+        }
+
+        &--pad {
+            padding-top: 7rem;
+            padding-bottom: 7rem;
+        }
+    }
+
+    .astronaut-section {
+        &__container {
+            display: table;
+        }
+
+        &__left {
+                display: table-cell;
+                width: 50%;
+                padding-top: 10rem;
+                padding-bottom: 10rem;
+                background-color: $gray-bg;
+
+                &--pad {
+                    padding: 0 10rem 0 10rem;
+                }
+            }
+
+        &__right {
+            display: table-cell;
+            width: 50%;
+        }
+
+        &__right {
+            background-repeat: no-repeat;
+            background-position: 100% 50%;
+            background-size: 100%;
+        }
+
+        @media(max-width: 1100px) {
+            &__left, &__right {
+                display: block;
+                width: 100%;
+            }
+
+            &__left {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+
+                &--pad {
+                    padding: 1rem;
+                }
+            }
+
+            &__right {
+                height: 200px;
+                background-position: 100% 40%;
+            }
+        }
+    }
+
+    .service-cta-section {
+        padding: 5rem 0 5rem 0;
+        margin-left: 2rem;
+        margin-right: 2rem;
+
+        &__btn-container {
+            display: flex;
+
+            @media(max-width: 768px) {
+                display: block;
+            }
+        }
+
+        @media(max-width: 768px) {
+            padding: 2rem 0 2rem 0;
+        }
+
+        .btn-contact, .btn-estimate {
+            display: block;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .btn {
+        min-width: 235px;
+    }
+
+    .btn-estimate {
+        background-color: $red;
+    }
+}

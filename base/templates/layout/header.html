@@ -1,0 +1,50 @@
+{% load static %}
+
+<nav class="main-nav w-100">
+    <div class="container pt-4">
+        <div class="d-flex w-100 align-items-center">
+            <div class="main-nav__logo align-content-start mr-auto align-items-center">
+                <img style="height: 70px;" src="{% static 'images/logo-mock.png' %}" alt="earth">
+                <span class="text-white main-nav__logo--first">Develo<span class="text-primary main-nav__logo--second">ship<span class="text-white">.</span></span></span>
+            </div>
+            <ul class="main-nav__links align-content-end ml-auto d-none d-lg-inline-flex d-md-inline-flex">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">About us</a>
+                </li>
+                <li>
+                    <a href="#">Our work</a>
+                </li>
+                <li>
+                    <a href="#">Contact us</a>
+                </li>
+            </ul>
+            <div class="hamburger-icon d-lg-none d-md-none" data-target=".main-nav-mobile">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-nav-mobile">
+        <ul class="man-nav-mobile__links text-white">
+            <li class="d-block">
+                <a href="#">Home</a>
+            </li>
+            <li class="d-block">
+                <a href="#">About us</a>
+            </li>
+            <li class="d-block">
+                <a href="#">Our work</a>
+            </li>
+            <li class="d-block">
+                <a href="#">Contact us</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-nav-overlay" data-target=".main-nav-mobile"></div>
+</nav>

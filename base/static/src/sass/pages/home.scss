@@ -31,11 +31,26 @@ $red: #EF787E;
         &__link {
             font-size: 1.25rem;
         }
+
+        @media(max-width: 768px) {
+            &__or, &__link {
+                display: block;
+                padding-top: 1rem;
+            }
+
+            &__cta {
+                text-align: center;
+            }
+        }
     }
 
     .reason-section {
         padding-top: 7rem;
         padding-bottom: 4rem;
+
+        @media(max-width: 768px) {
+            padding-top: 3rem;
+        }
 
         &__item {
             padding-bottom: 40px;
@@ -44,6 +59,11 @@ $red: #EF787E;
         &__title {
             padding-top: 1rem;
             padding-bottom: 1rem;
+
+            @media(max-width: 768px) {
+                padding-top: .5rem;
+                padding-bottom: .5rem;
+            }
         }
 
         &__img {
@@ -60,11 +80,31 @@ $red: #EF787E;
             left: 250px;
             position: absolute;
             top: 20px;
+
+            @media(max-width: 992px) {
+                left: 175px;
+            }
+
+            @media(max-width: 768px) {
+                position: relative;
+                top: 0;
+                left: 0;
+            }
         }
 
         &__content {
-            left: 100%;
+            left: 400px;
             position: relative;
+
+            @media(max-width: 992px) {
+                left: 350px;
+                max-width: 350px;
+            }
+
+            @media(max-width: 768px) {
+                left: 0;
+                max-width: 100%;
+            }
         }
 
         &__bg {
@@ -73,6 +113,11 @@ $red: #EF787E;
             border-top-left-radius: 290px;
             border-bottom-left-radius: 290px;
             margin-bottom: 5rem;
+
+            @media(max-width: 768px) {
+                border-radius: 0;
+                width: 100%;
+            }
         }
 
         &--pad {
@@ -108,10 +153,50 @@ $red: #EF787E;
             background-position: 100% 50%;
             background-size: 100%;
         }
+
+        @media(max-width: 1100px) {
+            &__left, &__right {
+                display: block;
+                width: 100%;
+            }
+
+            &__left {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+
+                &--pad {
+                    padding: 1rem;
+                }
+            }
+
+            &__right {
+                height: 200px;
+                background-position: 100% 40%;
+            }
+        }
     }
 
     .service-cta-section {
         padding: 5rem 0 5rem 0;
+        margin-left: 2rem;
+        margin-right: 2rem;
+
+        &__btn-container {
+            display: flex;
+
+            @media(max-width: 768px) {
+                display: block;
+            }
+        }
+
+        @media(max-width: 768px) {
+            padding: 2rem 0 2rem 0;
+        }
+
+        .btn-contact, .btn-estimate {
+            display: block;
+            margin-bottom: 2rem;
+        }
     }
 
     .btn {

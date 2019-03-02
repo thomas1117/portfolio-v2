@@ -1,1 +1,8 @@
-@import "~bootstrap/scss/bootstrap";
+// @import "~bootstrap/scss/bootstrap";
+@import "node_modules/spectre.css/src/spectre";
+
+@import "layout/slider-nav";
+
+@import "pages/splash";
+
+@import "utils/text-modifiers";

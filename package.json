@@ -43,7 +43,6 @@
     "webpack-md5-hash": "0.0.6"
   },
   "dependencies": {
-    "bootstrap": "^4.2.1",
     "vue": "^2.5.21"
   }
 }

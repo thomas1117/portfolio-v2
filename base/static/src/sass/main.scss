@@ -2,7 +2,9 @@
 @import "node_modules/spectre.css/src/spectre";
 
 @import "layout/slider-nav";
+@import "layout/nav";
 
 @import "pages/splash";
 
+@import "utils/display";
 @import "utils/text-modifiers";

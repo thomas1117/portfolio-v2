@@ -1,3 +1,5 @@
+{% load wagtailcore_tags wagtailroutablepage_tags %}
+
 <div class="nav-slider">
     <div class="nav-slider-inner">
         <h4 class="item">This is awkward...</h4>
@@ -6,6 +8,17 @@
             <li class="item">blog posts</li>
             <li class="item">dev projects</li>
         </ul>
+
+        <!-- <form role="search" method="get" class="form-search" action="blog/search" method="get">
+            <div class="input-group">
+                <input type="text" class="form-control search-query" name="q" placeholder="Search&hellip;" title="Search for:" />
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-default" name="submit" id="searchsubmit" value="Search">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </button>
+                </span>
+            </div>
+        </form> -->
     </div>
 </div>
 <div class="nav-slider-overlay"></div>

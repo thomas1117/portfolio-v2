@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags blogapp_tags %}
+
+{% block content %}
+
+<div class="container">
+    <div class="columns">
+        <div class="column">
+            {% if search_term %}
+                <header class="page-header">
+                  <h1 class="page-title">Search Results for <span>{{ search_type }}: {{ search_term }}</span></h1>
+                </header>
+            {% endif %}
+
+            <h1>{{ blog_page.title }}</h1>
+
+            <div class="intro">{{ blog_page.description }}</div>
+
+            {% for post in posts %}
+                <h2><a href="{% post_date_url post blog_page %}">{{ post.title }}</a></h2>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

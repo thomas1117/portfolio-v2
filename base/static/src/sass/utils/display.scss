@@ -1,3 +1,32 @@
 .d-inline-block {
     display: inline-block;
 }
+
+.img {
+    width: 100%;
+    height: auto;
+}
+
+.no-cursor {
+    // cursor: default;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+
+    }
+}
+
+.cursor {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.list-unstyled {
+    margin: 0;
+}
+
+.rich-text p {
+    margin-bottom: .5rem;
+}

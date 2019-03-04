@@ -1,0 +1,7 @@
+.page-content {
+    margin-top: 2rem;
+
+    @media(max-width: 968px) {
+        margin-top: 1rem;
+    }
+}

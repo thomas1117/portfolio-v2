@@ -7,3 +7,5 @@ db.sqlite3
 *.DS_Store
 .vscode
 .idea
+media/images/
+media/original_images

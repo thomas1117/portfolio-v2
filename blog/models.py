@@ -8,6 +8,7 @@ from wagtail.core.forms import forms
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from taggit.models import TaggedItemBase, Tag as TaggitTag
 from modelcluster.tags import ClusterTaggableManager
+from wagtail.images.edit_handlers import ImageChooserPanel
 
 import datetime
 
@@ -80,13 +81,23 @@ class BlogPage(RoutablePageMixin, Page):
         return Page.serve(self, request, *args, **kwargs)
 
 class PostPage(Page):
+    excerpt = RichTextField(blank=True)
     body = RichTextField(blank=True)
+    image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+"
+    )
     date = models.DateTimeField(verbose_name="Post date", default=datetime.datetime.today)
     categories = ParentalManyToManyField('blog.BlogCategory')
     tags = ClusterTaggableManager(through='blog.BlogPageTag', blank=True)
 
     content_panels = Page.content_panels + [
+        FieldPanel('excerpt', classname="full"),
         FieldPanel('body', classname="full"),
+        ImageChooserPanel('image'),
         FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
         FieldPanel('tags'),
     ]

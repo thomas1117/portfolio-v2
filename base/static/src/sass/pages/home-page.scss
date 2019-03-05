@@ -1,0 +1,11 @@
+.home-page {
+    &__header {
+
+    }
+
+    @media(max-width: 600px) {
+        .mb-sm-1 {
+            margin-bottom: 1;
+        }
+    }
+}

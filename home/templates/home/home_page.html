@@ -12,7 +12,47 @@ Delete the line below if you're just getting started and want to remove the welc
 
 {% block content %}
 {% include "layout/nav-slider.html" %}
-{% include "./splash_page.html" %}
+
+{% comment %} {% include "./splash_page.html" %} {% endcomment %}
+
+<div class="container grid-xl home-page page-content">
+    <div class="columns">
+        <div class="column">
+            <h3 class="home-page__header">Hi welcome to my site!</h3>
+            <p>Feel free to check out my:</p>
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="column col-4 col-lg-6 col-md-6 col-sm-12 mb-sm-1">
+            <div class="card">
+                <div class="card-image">
+                    <img class="img-responsive" src="http://placehold.it/450x250" alt="blog">
+                </div>
+                <div class="card-header">
+                    <div class="card-title h5">Blog</div>
+                    <div class="card-subtitle text-gray">Development and other things...</div>
+                </div>
+                <div class="card-footer">
+                        <a class="btn btn-primary" href="/blog">Go</a>
+                </div>
+            </div>
+        </div>
+        <div class="column col-4 col-lg-6 col-md-6 col-sm-12 mb-sm-1">
+            <div class="card">
+                <div class="card-image">
+                    <img class="img-responsive" src="http://placehold.it/450x250" alt="blog">
+                </div>
+                <div class="card-header">
+                    <div class="card-title h5">Projects</div>
+                    <div class="card-subtitle text-gray">Some projects I&apos;ve done</div>
+                </div>
+                <div class="card-footer">
+                        <a class="btn btn-primary" href="/blog">Go</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% comment %}
 Delete the line below if you're just getting started and want to remove the welcome screen!
 {% endcomment %}

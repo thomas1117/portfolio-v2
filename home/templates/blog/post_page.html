@@ -17,7 +17,7 @@
     <div class="columns">
         <div class="column col-9 col-md-12 blog-post-content">
                 <img src="{{ page.image.file.url }}" alt="" class="img">
-                <h3 class="blog-post-content__header">{{ page.title }}</h3>
+                <h3 class="blog-post-content__header"><strong>{{ page.title }}</strong></h3>
                 <p class="blog-post__date">{{ post.date }}</p>
                {{ page.body|richtext }}
                <p class=""><a href="{{ page.get_parent.url }}">Return to blog</a></p>

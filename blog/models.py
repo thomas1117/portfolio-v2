@@ -21,6 +21,12 @@ class BlogPage(RoutablePageMixin, Page):
         FieldPanel('description', classname="full")
     ]
 
+    def get_categories(self):
+        return BlogCategory.objects.all()
+
+    def get_tags(self):
+        return Tag.objects.all()
+
     def get_posts(self):
         return PostPage.objects.descendant_of(self).live()
 
@@ -49,6 +55,8 @@ class BlogPage(RoutablePageMixin, Page):
         context = super(BlogPage, self).get_context(request, *args, **kwargs)
         context['posts'] = self.posts
         context['blog_page'] = self
+        context['categories'] = self.get_categories()
+        context['tags'] = self.get_tags()
         return context
 
     @route(r'^tag/(?P<tag>[-\w]+)/$')

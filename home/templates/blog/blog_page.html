@@ -1,10 +1,20 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags blogapp_tags %}
+{% load wagtailcore_tags blogapp_tags wagtailroutablepage_tags %}
 
 {% block content %}
 
 <div class="container grid-xl page-content">
+    <div class="columns show-md show-sm show-xs">
+        {% if tags %}
+            <div class="column tags">
+                <h4 class="tags__header--mobile">Tags</h4>
+                {% for tag in tags %}
+                    <a class="chip" href="{% routablepageurl blog_page "post_by_tag" tag.slug %}">{{ tag }}</a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
     <div class="columns">
         <div class="column col-9 col-md-12 blog-post-content">
             {% if search_term %}
@@ -20,14 +30,33 @@
             {% for post in posts %}
                 <a href="{% post_date_url post blog_page %}" class="no-cursor">
                     <img src="{{ post.image.file.url }}" alt="image" class="img" />
-                    <h2 class="mb-0 cursor">{{ post.title }}</h2>
+                    <h2 class="mb-0 cursor blog-post-content__header"><strong>{{ post.title }}</strong></h2>
                 </a>
                     <p class="blog-post__date">{{ post.date }}</p>
                     {{ post.excerpt | richtext }}
             {% endfor %}
         </div>
         <div class="col-3 hide-md hide-sm hide-xs blog-post-filters">
-            
+            {% if tags %}
+                <div class="tags">
+                    <h3 class="tags__header">Tags</h3>
+                    {% for tag in tags %}
+                        <a class="chip" href="{% routablepageurl blog_page "post_by_tag" tag.slug %}">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+
+            {% if categories %}
+                <h3 class="categories__header">Categories</h3>
+                <ul class="list-unstyled">
+                    {% for category in categories %}
+                        <li style="display: inline">
+                            <a class="chip" href="{% routablepageurl blog_page "post_by_category" category.slug %}">{{ category.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </div>
     </div>
 </div>

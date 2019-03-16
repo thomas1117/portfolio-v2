@@ -6,6 +6,7 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 
+
 class ImageBlock(StructBlock):
     image = ImageChooserBlock()
     caption = RichTextBlock(max_length=255, required=False)
@@ -14,6 +15,7 @@ class ImageBlock(StructBlock):
         ImageChooserPanel('image'),
         FieldPanel('caption'),
     ]
+
 
 class CodeBlock(StructBlock):
     language_choices = [
@@ -25,6 +27,7 @@ class CodeBlock(StructBlock):
     ]
     language = ChoiceBlock(choices=language_choices)
     code = RawHTMLBlock()
+
 
 class GeneralBlock(StreamBlock):
     content = RichTextBlock(icon="pilcrow")

@@ -29,11 +29,13 @@
 
             {% for post in posts %}
                 <a href="{% post_date_url post blog_page %}" class="no-cursor">
-                    <img src="{{ post.image.file.url }}" alt="image" class="img" />
+                    {% if post.image.file.url %}
+                        <img src="{{ post.image.file.url }}" alt="image" class="img" />
+                    {% endif %}
                     <h2 class="mb-0 cursor blog-post-content__header"><strong>{{ post.title }}</strong></h2>
                 </a>
                     <p class="blog-post__date">{{ post.date }}</p>
-                    {{ post.excerpt | richtext }}
+                    {{ post.excerpt|richtext }}
             {% endfor %}
         </div>
         <div class="col-3 hide-md hide-sm hide-xs blog-post-filters">

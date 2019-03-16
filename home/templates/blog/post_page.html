@@ -19,7 +19,7 @@
                 <img src="{{ page.image.file.url }}" alt="" class="img">
                 <h3 class="blog-post-content__header"><strong>{{ page.title }}</strong></h3>
                 <p class="blog-post__date">{{ post.date }}</p>
-               {{ page.body|richtext }}
+               {{ page.body }}
                <p class=""><a href="{{ page.get_parent.url }}">Return to blog</a></p>
         </div>
         <div class="col-3 hide-md hide-sm hide-xs blog-post-filters">

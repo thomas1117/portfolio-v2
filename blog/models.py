@@ -1,7 +1,7 @@
 from django.db import models
 from wagtail.core.models import Page
-from wagtail.admin.edit_handlers import FieldPanel
-from wagtail.core.fields import RichTextField
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.core.fields import RichTextField, StreamField
 from wagtail.snippets.models import register_snippet
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from wagtail.core.forms import forms
@@ -9,6 +9,8 @@ from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 from taggit.models import TaggedItemBase, Tag as TaggitTag
 from modelcluster.tags import ClusterTaggableManager
 from wagtail.images.edit_handlers import ImageChooserPanel
+
+from general.models import GeneralBlock
 
 import datetime
 
@@ -90,7 +92,8 @@ class BlogPage(RoutablePageMixin, Page):
 
 class PostPage(Page):
     excerpt = RichTextField(blank=True)
-    body = RichTextField(blank=True)
+    # body = RichTextField(blank=True)
+    body = StreamField(GeneralBlock())
     image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -104,7 +107,7 @@ class PostPage(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel('excerpt', classname="full"),
-        FieldPanel('body', classname="full"),
+        StreamFieldPanel('body'),
         ImageChooserPanel('image'),
         FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
         FieldPanel('tags'),
@@ -149,4 +152,3 @@ class BlogPageTag(TaggedItemBase):
 class Tag(TaggitTag):
     class Meta:
         proxy = True
-
